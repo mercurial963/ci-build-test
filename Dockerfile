@@ -12,8 +12,11 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     openssh-client && \
     rm -rf /var/lib/apt/lists/* && \
     rm -rf /var/cache/* && \
+    apt install -y snapd \
+    snap install terragrunt \
     apt-get clean && \
     apt-get autoremove --purge
+
 RUN locale-gen en_US.UTF-8
 ENV LANG='en_US.UTF-8' LANGUAGE='en_US:en' LC_ALL='en_US.UTF-8'
 RUN git clone -b v2.2.2 https://github.com/tfutils/tfenv.git ~/.tfenv && \
