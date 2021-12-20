@@ -10,10 +10,10 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     zip \
     locales \
     openssh-client && \
+    apt install -y snapd && \
+    snap install terragrunt && \
     rm -rf /var/lib/apt/lists/* && \
     rm -rf /var/cache/* && \
-    apt install -y snapd \
-    snap install terragrunt \
     apt-get clean && \
     apt-get autoremove --purge
 
