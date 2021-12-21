@@ -1,6 +1,6 @@
 # FROM ubuntu:focal
 FROM alpine/terragrunt
-RUN apt-get update && apt-get install -y --no-install-recommends \
+RUN apk update && apt add --update --no-install-recommends \
     python3 \
     python3-pip \
     curl \
@@ -13,8 +13,8 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     openssh-client && \
     rm -rf /var/lib/apt/lists/* && \
     rm -rf /var/cache/* && \
-    apt-get clean && \
-    apt-get autoremove --purge
+    apk clean && \
+    apk autoremove --purge
 
 RUN locale-gen en_US.UTF-8
 ENV LANG='en_US.UTF-8' LANGUAGE='en_US:en' LC_ALL='en_US.UTF-8'
