@@ -1,6 +1,6 @@
 # FROM ubuntu:focal
 FROM alpine/terragrunt
-RUN apk update && apk add --update --no-install-recommends \
+RUN apk update && apk add --update  \
     python3 \
     python3-pip \
     curl \
@@ -15,7 +15,7 @@ RUN apk update && apk add --update --no-install-recommends \
     rm -rf /var/cache/* && \
     apk clean && \
     apk autoremove --purge
-
+# --no-install-recommends
 RUN locale-gen en_US.UTF-8
 ENV LANG='en_US.UTF-8' LANGUAGE='en_US:en' LC_ALL='en_US.UTF-8'
 RUN git clone -b v2.2.2 https://github.com/tfutils/tfenv.git ~/.tfenv && \
