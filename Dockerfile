@@ -1,4 +1,5 @@
-FROM ubuntu:focal
+# FROM ubuntu:focal
+FROM alpine/terragrunt
 RUN apt-get update && apt-get install -y --no-install-recommends \
     python3 \
     python3-pip \
@@ -10,9 +11,6 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     zip \
     locales \
     openssh-client && \
-    export DEBIAN_FRONTEND=noninteractive && \
-    apt install -y snapd && \
-    snap install terragrunt && \
     rm -rf /var/lib/apt/lists/* && \
     rm -rf /var/cache/* && \
     apt-get clean && \
