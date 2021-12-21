@@ -10,6 +10,7 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     zip \
     locales \
     openssh-client && \
+    export DEBIAN_FRONTEND=noninteractive && \
     apt install -y snapd && \
     snap install terragrunt && \
     rm -rf /var/lib/apt/lists/* && \
