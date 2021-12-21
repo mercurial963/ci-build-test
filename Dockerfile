@@ -1,6 +1,6 @@
 # FROM ubuntu:focal
 FROM alpine/terragrunt
-RUN apk update && apt add --update --no-install-recommends \
+RUN apk update && apk add --update --no-install-recommends \
     python3 \
     python3-pip \
     curl \
